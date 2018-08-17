@@ -12,3 +12,53 @@
 Mi nombre es : {{nombre}}  
 
 </div>
+
+============
+app.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'App';
+  a=3;
+  b=5;
+  listo=false;
+  nombre:string='';
+  
+  constructor(){
+    setTimeout(()=>{
+      this.listo=true;
+    },3000)
+  }
+  hacerAlgo(){
+    alert('Haciendo');
+  }
+}
+
+
+===========a
+app module.ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+import {FormsModule} from "@angular/forms";
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule
+    
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
